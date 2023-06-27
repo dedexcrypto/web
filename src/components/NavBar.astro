@@ -1,0 +1,132 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="logo"><img src="/logo.svg" alt="Logo" /></div>
+        <ul class="list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#fortraders">For Traders</a></li>
+            <li><a href="#formarketmakers">For Market Makers</a></li>
+            <li><a href="#forliquidators">For Liquidators</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+        </ul>
+        <a href="#roadmap" class="roadmap">Roadmap</a>
+    </div>
+</div>
+
+<style>
+    .wrapper {
+        display: flex;
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12.5px);
+    }
+    .container {
+        margin: auto;
+        max-width: 71rem;
+        width: min(100% - 5rem, 90rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5rem;
+        border-bottom: 1px solid rgba(0, 31, 62, 0.06);
+    }
+    .logo {
+        color: var(--secondary);
+        text-align: right;
+        font-size: 1.25rem;
+        font-family: Chillax;
+        font-weight: 600;
+        letter-spacing: -0.0625rem;
+    }
+    .list {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        list-style: none;
+    }
+    li {
+        color: var(--secondary);
+        text-align: right;
+        font-size: 0.75rem;
+        font-family: Manrope;
+        font-weight: 700;
+        line-height: 1.5rem;
+        letter-spacing: 0.0225rem;
+        text-transform: uppercase;
+        white-space: nowrap;
+        transition: scale 0.1s ease-in-out;
+    }
+    li:hover {
+        scale: 1.05;
+    }
+    .roadmap {
+        display: inline-flex;
+        padding: 0.75rem 1.5rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.625rem;
+        border-radius: 12px;
+        border: 1px solid var(--secondary);
+        transition: scale 0.1s ease-in-out;
+        color: #001f3e;
+        text-align: center;
+        font-size: 0.75rem;
+        font-family: Manrope;
+        font-weight: 700;
+        letter-spacing: 0.0225rem;
+        text-transform: uppercase;
+    }
+    .roadmap:hover {
+        scale: 1.05;
+    }
+
+    .roadmap > a {
+        color: var(--secondary);
+        text-align: center;
+        font-size: 0.75rem;
+        font-family: Manrope;
+        font-weight: 700;
+        letter-spacing: 0.0225rem;
+        text-transform: uppercase;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    @media (max-width: 940px) {
+        .list {
+            display: none;
+        }
+    }
+    @media (max-width: 768px) {
+        .list {
+            display: none;
+        }
+        .wrapper {
+            position: static;
+        }
+        .roadmap {
+            display: flex;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            color: #001f3e;
+            font-size: 0.75rem;
+        }
+    }
+    @media (max-width: 640px) {
+        .container {
+            width: min(100% - 3rem, 90rem);
+        }
+    }
+    @media (max-width: 475px) {
+        .container {
+            width: min(100% - 2rem, 90rem);
+        }
+    }
+</style>

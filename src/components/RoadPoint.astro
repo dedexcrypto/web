@@ -1,0 +1,147 @@
+---
+export type Props = {
+    phaseNum: number;
+    isLeft: boolean;
+    title: string;
+    points: { title: string; text: string }[];
+};
+const { title, points, phaseNum, isLeft } = Astro.props;
+---
+
+<div class={`container ${isLeft ? 'left' : 'right'}`}>
+    <div class="content">
+        <div class={`point ${isLeft ? 'point-left' : 'point-right'}`}>
+            <span class="number">{phaseNum}</span>
+        </div>
+        <div>
+            <span class="phase">Phase {phaseNum}:</span><br />
+            <h3 class="title">{title}</h3>
+        </div>
+        <ul class="list">
+            {
+                points.map((point) => (
+                    <li class="item">
+                        <div class="item-title">{point.title}</div>
+                        <div class="item-text">{point.text}</div>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>
+
+<style>
+    .container {
+        width: 100%;
+        padding-bottom: 6rem;
+        display: flex;
+    }
+    .left {
+        justify-content: start;
+    }
+    .right {
+        justify-content: end;
+    }
+    .content {
+        position: relative;
+        width: 50%;
+        padding: 0 3rem;
+        display: flex;
+        gap: 1.75rem;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .phase {
+        color: #0984ff;
+        font-size: 1.5rem;
+        font-family: Outfit;
+        font-weight: 700;
+        line-height: 130%;
+    }
+    .title {
+        font-size: 1.5rem;
+        font-family: Outfit;
+        font-weight: 700;
+        line-height: 130%;
+    }
+    .list {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+    }
+    .item {
+        display: flex;
+        position: relative;
+        list-style: none;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .item::before {
+        content: url('/checkmark.svg');
+        position: absolute;
+        left: -0.5rem;
+        transform: translateX(-100%);
+    }
+    .item-title {
+        color: #001f3e;
+        font-size: 1.125rem;
+        font-family: Manrope;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: 0.01125rem;
+    }
+    .item-text {
+        color: rgba(0, 31, 62, 0.6);
+        font-size: 1rem;
+        font-family: Manrope;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: 0.01rem;
+    }
+    .point {
+        border-radius: 999999px;
+        position: absolute;
+        width: 3.75rem;
+        height: 3.75rem;
+        background: #001f3e;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+    }
+    .point-left {
+        transform: translateX(50%);
+        right: 0;
+    }
+    .point-right {
+        left: 0;
+        transform: translateX(-50%);
+    }
+    .number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fefcff;
+        text-align: center;
+        leading-trim: both;
+        text-edge: cap;
+        font-size: 1.75rem;
+        font-family: Manrope;
+        font-weight: 700;
+        line-height: 2.5rem;
+    }
+    @media (max-width: 768px) {
+        .left {
+            justify-content: end;
+        }
+        .point-left {
+            left: 0;
+            transform: translateX(-50%);
+        }
+        .container {
+            padding-bottom: 4rem;
+        }
+        .content {
+            width: 100%;
+            padding: 0 0 0 3rem;
+        }
+    }
+</style>

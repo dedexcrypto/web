@@ -1,0 +1,78 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+import '@fontsource/outfit';
+import '@fontsource/manrope';
+import '@fontsource/outfit/100.css';
+import '@fontsource/outfit/200.css';
+import '@fontsource/outfit/300.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/outfit/700.css';
+import '@fontsource/outfit/800.css';
+import '@fontsource/outfit/900.css';
+import '@fontsource/manrope/200.css';
+import '@fontsource/manrope/300.css';
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="/open-graph.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>{title}</title>
+    </head>
+    <body>
+        <NavBar />
+        <slot />
+        <Footer />
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --secondary: #001f3e;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    h1 {
+        font-family: Outfit;
+        font-weight: 600;
+    }
+    h2 {
+        font-family: Outfit;
+        font-size: 3.125rem;
+        font-weight: 600;
+    }
+    html,
+    body {
+        font-family: Manrope;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+</style>

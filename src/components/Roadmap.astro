@@ -1,0 +1,118 @@
+---
+import RoadPoint from './RoadPoint.astro';
+import Section from './Section.astro';
+---
+
+<Section id="roadmap">
+    <div class="title-container">
+        <h2 class="title">Roadmap</h2>
+    </div>
+    <div class="content">
+        <div class="seperator"></div>
+        <RoadPoint
+            isLeft={true}
+            title="Derivatives Exchange"
+            phaseNum={1}
+            points={[
+                {
+                    title: 'Embrace True Decentralization',
+                    text: 'Surpass the centralized limitations with the native coin, which serves as collateral, ensuring decentralization at its finest.',
+                },
+                {
+                    title: 'Revolutionize Market-Making',
+                    text: 'Near Index Price Market-Making Algorithm redefines efficiency without a contract expiration date and funding rates.',
+                },
+            ]}
+        />
+        <RoadPoint
+            isLeft={false}
+            title="Real Value Representation"
+            phaseNum={2}
+            points={[
+                {
+                    title: 'dxUSD: The Game-Changing Stablecoin',
+                    text: 'Introducing dxUSD, a decentralized stablecoin that is not overcollateralized. Earn passive income for your staked ETH.',
+                },
+                {
+                    title: 'dxBTC: Break Boundaries with Real Bitcoin Value Representation',
+                    text: 'Discover dxBTC, a decentralized representation of BTC on Ethereum, goes beyond the traditional 21 million supply limit and creates staking rewards for an asset that didn’t originally have one.',
+                },
+            ]}
+        />
+        <RoadPoint
+            isLeft={true}
+            title="Next Steps"
+            phaseNum={3}
+            points={[
+                {
+                    title: 'Transform Transactions with Stablecoin Chain',
+                    text: 'Discover our Stablecoin Chain using dxUSD as a decentralized alternative to Visa/Mastercard, which is fast, efficient, and optimized for value transfers.',
+                },
+                {
+                    title: 'Experience Authentic Asset Exchange through Bitcoin Atomic Swaps',
+                    text: 'Trade real assets with Bitcoin Atomic Swaps and engage in peer-to-peer transactions without the need for wrappers or trusted third parties.',
+                },
+            ]}
+        />
+    </div>
+</Section>
+
+<style>
+    .content {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+    }
+    .title-container {
+        display: flex;
+        justify-content: center;
+        margin: 3.88rem 0;
+        align-items: center;
+    }
+    .title {
+        position: relative;
+        width: fit-content;
+        color: #001f3e;
+        font-size: 3.125rem;
+        font-family: Outfit;
+        font-weight: 600;
+    }
+    .title::before {
+        content: url('/decoration.svg');
+        position: absolute;
+        left: -3rem;
+        top: -1.3rem;
+    }
+    .seperator {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 66.666%;
+        width: 2px;
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0,
+            rgba(0, 0, 0, 0) 7px,
+            rgba(0, 31, 62, 1) 7px,
+            rgba(0, 31, 62, 1) 14px
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @media (max-width: 768px) {
+        .content {
+            margin-left: 2rem;
+        }
+        .seperator {
+            left: 0rem;
+        }
+        .title-container {
+            justify-content: start;
+        }
+        .title::before {
+            display: none;
+        }
+    }
+</style>

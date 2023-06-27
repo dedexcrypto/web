@@ -1,0 +1,56 @@
+---
+import FooterLink from './FooterLink.astro';
+import Section from './Section.astro';
+---
+
+<Section id="contacts" color="#001F3E">
+    <div class="container">
+        <FooterLink
+            icon="/twitter.svg"
+            href="https://dedex.co/twitter"
+            name="Twitter"
+        />
+        <FooterLink
+            icon="/discord.svg"
+            href="https://dedex.co/discord"
+            name="Discord"
+        />
+        <FooterLink
+            icon="/notions.svg"
+            href="https://dedex.co/notion"
+            name="Notion"
+        />
+        <FooterLink
+            icon="/github.svg"
+            href="https://dedex.co/github"
+            name="GitHub"
+        />
+    </div>
+    <div class="licence">
+        <span class="licence">© DEDEX 2023</span>
+    </div>
+</Section>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        padding: 4rem 2rem;
+        gap: 1.25rem;
+    }
+    .licence {
+        color: #fff;
+        font-size: 0.875rem;
+        font-family: Manrope;
+        font-weight: 500;
+        padding-bottom: 1.5rem;
+        text-align: center;
+    }
+    @media (max-width: 1000px) {
+        .container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+        }
+    }
+</style>

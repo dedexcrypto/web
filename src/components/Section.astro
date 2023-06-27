@@ -1,0 +1,36 @@
+---
+export type Props = {
+    color?: string;
+    id?: string;
+};
+const { color, id } = Astro.props;
+---
+
+<section id={id} style={`${color ? `background-color:${color}` : ''}`}>
+    <div><slot /></div>
+</section>
+
+<style>
+    section {
+        width: 100%;
+    }
+    .dark {
+        background-color: black;
+    }
+    div {
+        margin: auto;
+        position: relative;
+        max-width: 90rem;
+        width: min(100% - 5rem, 71rem);
+    }
+    @media (max-width: 640px) {
+        div {
+            width: min(100% - 3rem, 71rem);
+        }
+    }
+    @media (max-width: 475px) {
+        div {
+            width: min(100% - 2rem, 71rem);
+        }
+    }
+</style>

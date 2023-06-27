@@ -1,0 +1,49 @@
+---
+export type Props = {
+    name: string;
+    href: string;
+    icon: string;
+};
+const { name, href, icon } = Astro.props;
+---
+
+<a href={href} target="_blank" class="container">
+    <img class="logo" src={icon} alt={`${name} Icon`} />
+    <span>{name}</span>
+</a>
+
+<style>
+    .container {
+        display: flex;
+        padding: 1.5rem 3rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        border-radius: 12px;
+        border: 1px solid #fff;
+        background: #fff;
+        color: #001f3e;
+        font-size: 1rem;
+        font-family: Manrope;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        transition-property: background, color, border, filter;
+    }
+    .logo {
+        transition: filter 0.2s ease-in-out;
+    }
+    .container:hover {
+        border: 1px solid #fff;
+        background: #001f3e;
+        color: white;
+        .logo {
+            filter: brightness(0%) invert(100%);
+        }
+    }
+    @media (max-width: 768px) {
+        .container {
+            padding: 1.5rem 2rem;
+        }
+    }
+</style>
